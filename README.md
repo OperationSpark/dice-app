@@ -67,7 +67,9 @@ var randomNum = Math.ceil(Math.random() * 6)
 
 ## TODO 6: Display the correct number of dots
 
-Use `if` statements to create the correct number of dots based on the random number. Use the image above for guidance.
+Use `if` statements to create the correct number of dots based on the random number. Use the image below for guidance.
+
+![Dice](/dice.png)
 
 Your general logic should be:
 
