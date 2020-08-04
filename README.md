@@ -11,7 +11,7 @@ Inside the `<body>`, add a `<div id='die'>` element.
 
 Then, inside the `<head>`, add `<style>` tags and the CSS styles below
 
-```css
+```html
 <style>
     #die {
         height: 100px;
