@@ -1,24 +1,30 @@
 # Dice App
-Build a dice simulator using jQuery
+Build a dice simulator using jQuery.
+
+This entire project should be built using jsbin. When you are done, save your project and send the unique URL to your instructor.
 
 # Part 1: Create the Die
 
 ## TODO 1: Create the die element with HTML and CSS
 
-Use HTML to create a `<div id='die'>` element inside the `<body>`.
+Inside the `<body>`, add a `<div id='die'>` element.
 
-Then, use CSS to style the die with the following properties:
+Then, inside the `<head>`, add `<style>` tags and the CSS styles below
 
 ```css
-height:100px;
-width: 100px;
-background-color: your choice
-position: relative;
+<style>
+    #die {
+        height: 100px;
+        width: 100px;
+        background-color: lightgray; /* feel free to change this */
+        position: relative;
+    }
+</style>
 ```
 
 ## TODO 2: Import jQuery
 
-Copy-paste the HTML `<script>` tag below into your `<head>` to import jQuery.
+Inside the `<head>`, copy-paste the HTML `<script>` tag to import jQuery.
 
 ```html
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -26,17 +32,19 @@ Copy-paste the HTML `<script>` tag below into your `<head>` to import jQuery.
 
 ## TODO 3: Create a dot in the die with jQuery
 
-Using jQuery, create a single dot in the middle of the #die element:
+_After_ the `<body>`, add a `<script>` tag.
+
+_Inside_ the script tag, use jQuery to create a single dot in the middle of the #die element:
 
 ```js
 $('<div>')
-	.css("height", 15)
-	.css("width", 15)
-	.css("background-color", "black")
-	.css("position", "absolute")
-	.css('top', 50)
-	.css('left', 50)
-	.appendTo("#die");
+    .css("height", 15)
+    .css("width", 15)
+    .css("background-color", "black")
+    .css("position", "absolute")
+    .css('top', 50)
+    .css('left', 50)
+    .appendTo("#die");
 ```  
  
  
@@ -46,20 +54,17 @@ $('<div>')
 
 Turn your code from TODO 3 into a function that can make a dot in ANY LOCATION. What parameters should this function have? What will change each time you create a new dot?
 
-Call this function `makeDot`.
+Name this function `makeDot`.
 
 ## TODO 5: Make five dots
 
 Use `makeDot` to create 5 dots on your `#die` element.
 
-SOLVE A NEW PROBLEM
-Generate a random number between 1-6:
-
 # Part 3: Make it random!
 
 ## TODO 6: Generate a random number
 
-Use the code below to generate a random number each time the program runs:
+Use the code below to generate a random number between 1 and 6 each time the program runs:
 
 ```js
 var randomNum = Math.ceil(Math.random() * 6)
@@ -81,7 +86,20 @@ ELSE IF randomNum is 2:
 ELSE IF ...
 ```
 
-# Bonus Challenge Ideas:
+## TODO 7: Make it clickable!
 
-1. Make your die re-roll each time it is clicked. 
-2. Have two separate die that can be rolled together
+Make your die clickable by registering an event handler function to respond to a `"click"` event. Use the general structure below:
+
+```js
+// Register an event handler function to be called in response to an "event"
+$("element").on("eventType", handlerFn);
+
+// Event handler function
+function hanlderFn() {
+
+}
+```
+
+# Bonus Challenge
+
+Add a second die that would produce a different result from the first.
