@@ -95,7 +95,7 @@ Make your die clickable by registering an event handler function to respond to a
 $("element").on("eventType", handlerFn);
 
 // Event handler function
-function hanlderFn() {
+function handlerFn() {
 
 }
 ```
