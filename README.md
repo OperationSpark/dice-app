@@ -70,7 +70,7 @@ Use the code below to generate a random number between 1 and 6 each time the pro
 var randomNum = Math.ceil(Math.random() * 6)
 ```
 
-## TODO 6: Display the correct number of dots
+## TODO 7: Display the correct number of dots
 
 Use `if` statements to create the correct number of dots based on the random number. Use the image below for guidance.
 
@@ -86,7 +86,7 @@ ELSE IF randomNum is 2:
 ELSE IF ...
 ```
 
-## TODO 7: Make it clickable!
+## TODO 8: Make it clickable!
 
 Make your die clickable by registering an event handler function to respond to a `"click"` event. Use the general structure below:
 
