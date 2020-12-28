@@ -56,13 +56,9 @@ Turn your code from TODO 3 into a function that can make a dot in ANY LOCATION. 
 
 Name this function `makeDot`.
 
-## TODO 5: Make five dots
-
-Use `makeDot` to create 5 dots on your `#die` element.
-
 # Part 3: Make it random!
 
-## TODO 6: Generate a random number
+## TODO 5: Generate a random number
 
 Use the code below to generate a random number between 1 and 6 each time the program runs:
 
@@ -70,23 +66,51 @@ Use the code below to generate a random number between 1 and 6 each time the pro
 var randomNum = Math.ceil(Math.random() * 6)
 ```
 
-## TODO 7: Display the correct number of dots
+## TODO 6: Display the correct number of dots
 
-Use `if` statements to create the correct number of dots based on the random number. Use the image below for guidance.
+Use `if` statements to create the correct number of dots based on the random number. Use the image and code below for guidance.
 
-<img src="/dice.png" width=300>
+<img src="./dice.png" width=300>
 
-Your general logic should be:
+You only need to program in the case of six dots. For the rest, simply copy in this code:
 
+```js
+if (randomNum === 1) {
+    makeDot(50, 50, dieID); // middle middle
+}
+else if (randomNum === 2) {
+    makeDot(25, 25, dieID); // top left
+    makeDot(75, 75, dieID); // bottom right
+}
+else if (randomNum === 3) {
+    makeDot(25, 25, dieID); // top left
+    makeDot(75, 75, dieID); // bottom right
+    makeDot(50, 50, dieID); // middle middle
+}
+else if (randomNum === 4) {
+    makeDot(75, 75, dieID); // bottom right
+    makeDot(25, 25, dieID); // top left
+    makeDot(25, 75, dieID); // bottom left
+    makeDot(75, 25, dieID); // top right
+}
+else if (randomNum === 5) {
+    makeDot(50, 50, dieID); // middle middle
+    makeDot(75, 75, dieID); // bottom right
+    makeDot(25, 25, dieID); // top left
+    makeDot(25, 75, dieID); // bottom left
+    makeDot(75, 25, dieID); // top right
+}
 ```
-IF randomNum is 1:
-	make one dot in the middle
-ELSE IF randomNum is 2:
-	make two dots in opposite corners
-ELSE IF ...
-```
 
-## TODO 8: Make it clickable!
+Using both the image and the code above, you should be able to figure out the case for six dots. Put it in!
+
+# Part 4: Make it clickable
+
+## TODO 7: Make it a function
+
+Make a function called `rollDie` and put your all your code from Part 3 (TODOs 5 and 6) into that function. Now, just calling the function will roll the die!
+
+## TODO 8: Run on clicks!
 
 Make your die clickable by registering an event handler function to respond to a `"click"` event. Use the general structure below:
 
@@ -100,6 +124,10 @@ function handlerFn() {
 }
 ```
 
+You will need to put your function call to `rollDie()` in your handler function, of course, or else the handler function won't do anything!
+
 # Bonus Challenge
 
 Add a second die that would produce a different result from the first.
+
+**HINT:** Make your `rollDie` function take in an element's id so you can specify which die to roll for. Then you'll just need to call the function once for each die you roll!
