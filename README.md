@@ -72,7 +72,7 @@ Use `if` statements to create the correct number of dots based on the random num
 
 <img src="./dice.png" width=300>
 
-You only need to program in the case of six dots. For the rest, simply copy in this code:
+You only need to program in the case of six dots. For the rest, simply copy in this code (be sure to replace `dieID` with your actual die id):
 
 ```js
 if (randomNum === 1) {
@@ -108,7 +108,11 @@ Using both the image and the code above, you should be able to figure out the ca
 
 ## TODO 7: Make it a function
 
-Make a function called `rollDie` and put your all your code from Part 3 (TODOs 5 and 6) into that function. Now, just calling the function will roll the die!
+Make a function called `rollDie` and put your all your code from Part 3 (TODOs 5 and 6) into that function. You will also want to add the following line to the beginning of the function:
+
+    $('#die').empty();
+
+Now, just calling the function will roll the die!
 
 ## TODO 8: Run on clicks!
 
