@@ -56,6 +56,8 @@ Turn your code from TODO 3 into a function that can make a dot in ANY LOCATION. 
 
 Name this function `makeDot`.
 
+**Note:** rather than using the parameters to set the positions of the dot, use the parameters and subtract 10 from each of them. This will center things better. This is not required for full credit, however.
+
 # Part 3: Make it random!
 
 ## TODO 5: Generate a random number
