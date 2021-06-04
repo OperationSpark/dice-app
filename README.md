@@ -1,7 +1,7 @@
 # Dice App
 Build a dice simulator using jQuery.
 
-This entire project should be built using jsbin. When you are done, save your project and send the unique URL to your instructor.
+This entire project should be built using jsbin and **only work in the HTML section.** When you are done, save your project and send the unique URL to your instructor.
 
 # Part 1: Create the Die
 
