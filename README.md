@@ -114,6 +114,8 @@ Make a function called `rollDie` and put your all your code from Part 3 (TODOs 5
 
     $('#die').empty();
 
+You will also want to give `rollDie` a single parameter of `dieID` in case you attempt the challenge later.
+
 Now, just calling the function will roll the die!
 
 ## TODO 8: Run on clicks!
