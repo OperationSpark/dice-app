@@ -72,7 +72,7 @@ var randomNum = Math.ceil(Math.random() * 6)
 
 Use `if` statements to create the correct number of dots based on the random number. Use the image and code below for guidance.
 
-<img src="./dice.png" width=300>
+<img src="./dice.jpg" width=300>
 
 You only need to program in the case of six dots. For the rest, simply copy in this code (be sure to replace `dieID` with your actual die id):
 
