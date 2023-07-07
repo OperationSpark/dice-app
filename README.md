@@ -32,9 +32,9 @@ Inside the `<head>`, copy-paste the HTML `<script>` tag to import jQuery.
 
 ## TODO 3: Create a dot in the die with jQuery
 
-_After_ the `</body>`, add a `<script>` tag.
+_After_ the `</body>`, add opening and closing `<script>` tags.
 
-_Inside_ the script tag, use jQuery to create a single dot in the middle of the #die element:
+_Inside_ the script tags, use jQuery to create a single dot in the middle of the #die element:
 
 ```js
 $('<div>')
