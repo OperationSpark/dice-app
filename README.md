@@ -32,29 +32,30 @@ This mini-project uses three files:
 
 🎯 **Goal:** Set up the main structure of the page, including the die element and stylesheet connection.
 
-1. In `index.html`, inside the `<body>`, add a single die element:
+1.  In `index.html`, inside the `<body>`, add a single die element:
 
     ```html
     <div id="die"></div>
     ```
 
-2. In the `<head>`, link to your external CSS file:
+2.  In the `<head>`, link to your external CSS file:
 
     ```html
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     ```
 
-3. Then, in `style.css`, define the basic styles for the die:
+3.  Then, in `style.css`, define the basic styles for the die:
 
-    ```css
-    #die {
-      height: 100px;
-      width: 100px;
-      background-color: lightgray; /* Feel free to customize */
-      position: relative;
-    }
-    ```
-<br><br><br><br>
+        ```css
+        #die {
+          height: 100px;
+          width: 100px;
+          background-color: lightgray; /* Feel free to customize */
+          position: relative;
+        }
+        ```
+
+    <br><br><br><br>
 
 ## 🧲 TODO 2: Import jQuery
 
@@ -62,15 +63,15 @@ This mini-project uses three files:
 
 1. Still in the `<head>` of `index.html`, include jQuery using a CDN:
 
-    ```html
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    ```
+   ```html
+   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+   ```
 
 2. Just before the closing `</body>` tag, link to your JavaScript file:
 
-    ```html
-    <script src="dice.js"></script>
-    ```
+   ```html
+   <script src="dice.js"></script>
+   ```
 
 <br><br><br><br>
 
@@ -156,14 +157,14 @@ This tells the browser: “When the element with the ID `die` is clicked, run th
 
 🎯 **Goal:** Generate a new random number between 1 and 6 each time the die is clicked.
 
-Now that your click handler is set up, it’s time to give it some functionality! 
+Now that your click handler is set up, it’s time to give it some functionality!
 
 1. Inside the function, generate a random number:
 
-    ```js
-    var randomNum = Math.ceil(Math.random() * 6);
-    console.log(randomNum);
-    ```
+   ```js
+   var randomNum = Math.ceil(Math.random() * 6);
+   console.log(randomNum);
+   ```
 
 ---
 
@@ -185,40 +186,41 @@ Now let’s make the die show the right face by calling a helper function called
 
 1. **Copy and paste** the following code inside your `rollDie` function, after generating the random number:
 
-    ```js
-    if (randomNum === 1) {
-      makeDot(50, 50, "#die"); // middle middle
-    } else if (randomNum === 2) {
-      makeDot(25, 25, "#die"); // top left
-      makeDot(75, 75, "#die"); // bottom right
-    } else if (randomNum === 3) {
-      makeDot(25, 25, "#die"); // top left
-      makeDot(75, 75, "#die"); // bottom right
-      makeDot(50, 50, "#die"); // middle middle
-    } else if (randomNum === 4) {
-      makeDot(75, 75, "#die"); // bottom right
-      makeDot(25, 25, "#die"); // top left
-      makeDot(25, 75, "#die"); // bottom left
-      makeDot(75, 25, "#die"); // top right
-    } else if (randomNum === 5) {
-      makeDot(50, 50, "#die"); // middle middle
-      makeDot(75, 75, "#die"); // bottom right
-      makeDot(25, 25, "#die"); // top left
-      makeDot(25, 75, "#die"); // bottom left
-      makeDot(75, 25, "#die"); // top right
-    }
-    ```
+   ```js
+   if (randomNum === 1) {
+     makeDot(50, 50, "#die"); // middle middle
+   } else if (randomNum === 2) {
+     makeDot(25, 25, "#die"); // top left
+     makeDot(75, 75, "#die"); // bottom right
+   } else if (randomNum === 3) {
+     makeDot(25, 25, "#die"); // top left
+     makeDot(75, 75, "#die"); // bottom right
+     makeDot(50, 50, "#die"); // middle middle
+   } else if (randomNum === 4) {
+     makeDot(75, 75, "#die"); // bottom right
+     makeDot(25, 25, "#die"); // top left
+     makeDot(25, 75, "#die"); // bottom left
+     makeDot(75, 25, "#die"); // top right
+   } else if (randomNum === 5) {
+     makeDot(50, 50, "#die"); // middle middle
+     makeDot(75, 75, "#die"); // bottom right
+     makeDot(25, 25, "#die"); // top left
+     makeDot(25, 75, "#die"); // bottom left
+     makeDot(75, 25, "#die"); // top right
+   }
+   ```
 
 2. Define a new function above `rollDie` called `makeDot`. This function will handle creating and positioning a dot anywhere on the die. For this function, copy your code from TODO 3, but modify it to accept three parameters: `top`, `left`, and `elementID`.
 
-    ```js
+   ```js
 
-    > 💡 **Hint:** Think about which values change every time you place a dot. Your function will need:
-    > - One parameter for the **top** position
-    > - One parameter for the **left** position
-    > - One parameter for the **element to append to**
-    >
-    > Use these parameters when setting the CSS properties and when calling `.appendTo()`.
+   > 💡 **Hint:** Think about which values change every time you place a dot. Your function will need:
+   > - One parameter for the **top** position
+   > - One parameter for the **left** position
+   > - One parameter for the **element to append to**
+   >
+   > Use these parameters when setting the CSS properties and when calling `.appendTo()`.
+   ```
 
 ---
 
@@ -240,11 +242,11 @@ Each time the die is clicked, it should start fresh. To do that, just clear the 
 
 1. At the very top of your `rollDie` function, add:
 
-    ```js
-    $("#die").empty();
-    ```
+   ```js
+   $("#die").empty();
+   ```
 
-    This removes all existing dots inside the die before drawing new ones.
+   This removes all existing dots inside the die before drawing new ones.
 
 ---
 
@@ -264,9 +266,11 @@ Each time the die is clicked, it should start fresh. To do that, just clear the 
 
 You’ve got the dot patterns for numbers 1 through 5—now it’s time to finish it off by adding one more `else if` block for when `randomNum === 6`.
 
-> 💡 **Hint:** Think about how six dots are arranged on a real die. You’ll want to use three pairs of dots, evenly spaced vertically. You can also reference the image in the earlier instructions if needed.
+> 💡 **Hint:** Think about how six dots are arranged on a real die. You’ll want to use three pairs of dots, evenly spaced vertically. You can also reference the image below if needed.
 
 Make sure to use your `makeDot` function and append the new dots to `#die`.
+
+<img src="https://github.com/OperationSpark/images/blob/master/hs-curriculum/asd-projects/dice-app/dice.jpg?raw=true" width="300">
 
 ---
 
@@ -290,6 +294,7 @@ Once you’ve got one die working, try adding a second! You’ll need to update 
 > 💡 **Hint:** Your `rollDie` and `makeDot` functions already take an element ID as a parameter. This makes them reusable! Try calling `rollDie("#die2")` when the second die is clicked, just like you did with the first.
 
 Get creative! You could even:
+
 - Display the total of both dice
 - Color each die differently
 - Style them to look more like real dice
