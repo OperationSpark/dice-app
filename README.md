@@ -1,141 +1,295 @@
-# Dice App
-Build a dice simulator using jQuery.
+# 🎲 Dice Simulator
 
-This entire project should be built using jsbin and **only work in the HTML section.** When you are done, save your project and send the unique URL to your instructor.
+A simple interactive dice app built with HTML, CSS, and JavaScript (using jQuery). This version is structured for use in VS Code with separate files for markup, styles, and behavior.
 
-# Part 1: Create the Die
+## 📚 Table of Contents
 
-## TODO 1: Create the die element with HTML and CSS
+- [📁 Project Files](#-project-files)
+- [🧱 TODO 1: Create the Die Element](#-todo-1-create-the-die-element)
+- [🧲 TODO 2: Import jQuery](#-todo-2-import-jquery)
+- [🎯 TODO 3: Create a Dot with jQuery](#-todo-3-create-a-dot-with-jquery)
+- [🖱️ TODO 4: Make a Click Handler Function](#️-todo-4-make-a-click-handler-function)
+- [🔁 TODO 5: Register a Click Event with jQuery](#-todo-5-register-a-click-event-with-jquery)
+- [🎲 TODO 6: Generate a Random Number](#-todo-6-generate-a-random-number)
+- [🎯 TODO 7: Add Dots Based on the Random Number](#-todo-7-add-dots-based-on-the-random-number)
+- [🧹 TODO 8: Clear the Die Before Each Roll](#-todo-8-clear-the-die-before-each-roll)
+- [🎯 TODO 9: Add the Final Dice Face (Six Dots)](#-todo-9-add-the-final-dice-face-six-dots)
+- [🌟 Bonus Challenge](#-bonus-challenge)
 
-Inside the `<body>`, add a `<div id='die'>` element.
+---
 
-Then, inside the `<head>`, add `<style>` tags and the CSS styles below
+## 📁 Project Files
 
-```html
-<style>
+This mini-project uses three files:
+
+- `index.html` – Contains the structure of the dice app
+- `style.css` – Defines the visual styling of the die and its components
+- `dice.js` – Handles all dice functionality using jQuery
+
+---
+
+## 🧱 TODO 1: Create the Die Element
+
+🎯 **Goal:** Set up the main structure of the page, including the die element and stylesheet connection.
+
+1. In `index.html`, inside the `<body>`, add a single die element:
+
+    ```html
+    <div id="die"></div>
+    ```
+
+2. In the `<head>`, link to your external CSS file:
+
+    ```html
+    <link rel="stylesheet" href="style.css">
+    ```
+
+3. Then, in `style.css`, define the basic styles for the die:
+
+    ```css
     #die {
-        height: 100px;
-        width: 100px;
-        background-color: lightgray; /* feel free to change this */
-        position: relative;
+      height: 100px;
+      width: 100px;
+      background-color: lightgray; /* Feel free to customize */
+      position: relative;
     }
-</style>
-```
+    ```
+<br><br><br><br>
 
-## TODO 2: Import jQuery
+## 🧲 TODO 2: Import jQuery
 
-Inside the `<head>`, copy-paste the HTML `<script>` tag to import jQuery.
+🎯 **Goal:** Set up jQuery to handle interactions with the die.
 
-```html
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-```
+1. Still in the `<head>` of `index.html`, include jQuery using a CDN:
 
-## TODO 3: Create a dot in the die with jQuery
+    ```html
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    ```
 
-_After_ the `</body>`, add opening and closing `<script>` tags.
+2. Just before the closing `</body>` tag, link to your JavaScript file:
 
-_Inside_ the script tags, use jQuery to create a single dot in the middle of the #die element:
+    ```html
+    <script src="dice.js"></script>
+    ```
 
-```js
-$('<div>')
-    .css("height", 15)
-    .css("width", 15)
-    .css("background-color", "black")
-    .css("position", "absolute")
-    .css('top', 50)
-    .css('left', 50)
-    .appendTo("#die");
-```  
- 
- 
-# Part 2: Make your code reusable.
+<br><br><br><br>
 
-## TODO 4: Create a function to make a dot anywhere
+## ⏺️ TODO 3: Create a Dot with jQuery
 
-Turn your code from TODO 3 into a function that can make a dot in ANY LOCATION. What parameters should this function have? What will change each time you create a new dot?
+🎯 **Goal:** Use jQuery to create a dot inside the die element.
 
-Name this function `makeDot`.
-
-**Note:** rather than using the parameters to set the positions of the dot, use the parameters and subtract 10 from each of them. This will center things better. This is not required for full credit, however.
-
-# Part 3: Make it random!
-
-## TODO 5: Generate a random number
-
-Use the code below to generate a random number between 1 and 6 each time the program runs:
+1. In `dice.js`, use the following code to create a single dot positioned in the center of the die:
 
 ```js
-var randomNum = Math.ceil(Math.random() * 6)
+$("<div>")
+  .css("height", 15)
+  .css("width", 15)
+  .css("background-color", "black")
+  .css("position", "absolute")
+  .css("top", 50)
+  .css("left", 50)
+  .appendTo("#die");
 ```
 
-## TODO 6: Display the correct number of dots
+---
 
-Use `if` statements to create the correct number of dots based on the random number. Use the image and code below for guidance.
+### ✅ **Check Your Work!**
 
-<img src="./dice.jpg" width=300>
+- When you open `index.html` in your browser, you should see:
+  - A **gray square** representing the die (unless you changed the background color)
+  - A **black dot** in the center of the die
+- If you don’t see the dot:
+  - Make sure jQuery is properly loaded
+  - Confirm that your `dice.js` file is linked correctly
+  - Confirm that your `style.css` file is linked correctly
+  - Check your file and folder names for typos
 
-You only need to program in the case of six dots. For the rest, simply copy in this code (be sure to replace `dieID` with your actual die id):
+<br><br><br><br>
+
+## 🖱️ TODO 4: Make a Click Handler Function
+
+🎯 **Goal:** Create a function that logs a message when it runs, so you can test that it's connected correctly later.
+
+1. In `dice.js`, create a function called `rollDie`, that will only log the word **“clicked”** to the console.
+
+2. Just below the function, call `rollDie()` directly to test it.
+
+---
+
+### ✅ **Check Your Work!**
+
+- Open your browser’s **DevTools Console** (`Right click → Inspect → Console`)
+- You should see the word **“clicked”** printed once
+- If nothing appears:
+  - Make sure `dice.js` is linked correctly in `index.html`
+  - Check for typos in your function name or `console.log` statement
+
+<br><br><br><br>
+
+## 🔁 TODO 5: Register a Click Event with jQuery
+
+🎯 **Goal:** Use jQuery to run your function whenever the die is clicked.
+
+Replace your direct function call with this:
 
 ```js
-if (randomNum === 1) {
-    makeDot(50, 50, dieID); // middle middle
-}
-else if (randomNum === 2) {
-    makeDot(25, 25, dieID); // top left
-    makeDot(75, 75, dieID); // bottom right
-}
-else if (randomNum === 3) {
-    makeDot(25, 25, dieID); // top left
-    makeDot(75, 75, dieID); // bottom right
-    makeDot(50, 50, dieID); // middle middle
-}
-else if (randomNum === 4) {
-    makeDot(75, 75, dieID); // bottom right
-    makeDot(25, 25, dieID); // top left
-    makeDot(25, 75, dieID); // bottom left
-    makeDot(75, 25, dieID); // top right
-}
-else if (randomNum === 5) {
-    makeDot(50, 50, dieID); // middle middle
-    makeDot(75, 75, dieID); // bottom right
-    makeDot(25, 25, dieID); // top left
-    makeDot(25, 75, dieID); // bottom left
-    makeDot(75, 25, dieID); // top right
-}
+$("#die").on("click", handleClick);
 ```
 
-Using both the image and the code above, you should be able to figure out the case for six dots. Put it in!
+This tells the browser: “When the element with the ID `die` is clicked, run the `handleClick` function.”
 
-# Part 4: Make it clickable
+---
 
-## TODO 7: Make it a function
+### ✅ **Check Your Work!**
 
-Make a function called `rollDie` and put your all your code from Part 3 (TODOs 5 and 6) into that function. You will also want to add the following line to the beginning of the function:
+- Open your page in the browser
+- Click on the die square
+- Each time you click, you should see **“clicked”** appear in the Console
+- If it doesn’t work:
+  - Make sure your `#die` element exists in `index.html`
+  - Double-check the ID and the function name
+  - Ensure jQuery is loaded before your script in `index.html`
 
-    $('#die').empty();
+<br><br><br><br>
 
-You will also want to give `rollDie` a single parameter of `dieID` in case you attempt the challenge later.
+## 🎲 TODO 6: Generate a Random Number
 
-Now, just calling the function will roll the die!
+🎯 **Goal:** Generate a new random number between 1 and 6 each time the die is clicked.
 
-## TODO 8: Run on clicks!
+Now that your click handler is set up, it’s time to give it some functionality! 
 
-Make your die clickable by registering an event handler function to respond to a `"click"` event. Use the general structure below:
+1. Inside the function, generate a random number:
 
-```js
-// Register an event handler function to be called in response to an "event"
-$("element").on("eventType", handlerFn);
+    ```js
+    var randomNum = Math.ceil(Math.random() * 6);
+    console.log(randomNum);
+    ```
 
-// Event handler function
-function handlerFn() {
+---
 
-}
-```
+### ✅ **Check Your Work!**
 
-You will need to put your function call to `rollDie()` in your handler function, of course, or else the handler function won't do anything!
+- Open the Console and click the die
+- You should see a random number between **1 and 6** each time you click
+- If it’s not working:
+  - Make sure you are now printing the random number inside your `handleClick` function instead of `"clicked"`
+  - Double-check the `Math.random()` line for typos
 
-# Bonus Challenge
+<br><br><br><br>
 
-Add a second die that would produce a different result from the first.
+## 🔢 TODO 7: Add Dots Based on the Random Number
 
-**HINT:** Make your `rollDie` function take in an element's id so you can specify which die to roll for. Then you'll just need to call the function once for each die you roll!
+🎯 **Goal:** Use the random number to display the correct number of dots on the die.
+
+Now let’s make the die show the right face by calling a helper function called `makeDot`.
+
+1. **Copy and paste** the following code inside your `rollDie` function, after generating the random number:
+
+    ```js
+    if (randomNum === 1) {
+      makeDot(50, 50, "#die"); // middle middle
+    } else if (randomNum === 2) {
+      makeDot(25, 25, "#die"); // top left
+      makeDot(75, 75, "#die"); // bottom right
+    } else if (randomNum === 3) {
+      makeDot(25, 25, "#die"); // top left
+      makeDot(75, 75, "#die"); // bottom right
+      makeDot(50, 50, "#die"); // middle middle
+    } else if (randomNum === 4) {
+      makeDot(75, 75, "#die"); // bottom right
+      makeDot(25, 25, "#die"); // top left
+      makeDot(25, 75, "#die"); // bottom left
+      makeDot(75, 25, "#die"); // top right
+    } else if (randomNum === 5) {
+      makeDot(50, 50, "#die"); // middle middle
+      makeDot(75, 75, "#die"); // bottom right
+      makeDot(25, 25, "#die"); // top left
+      makeDot(25, 75, "#die"); // bottom left
+      makeDot(75, 25, "#die"); // top right
+    }
+    ```
+
+2. Define a new function above `rollDie` called `makeDot`. This function will handle creating and positioning a dot anywhere on the die. For this function, copy your code from TODO 3, but modify it to accept three parameters: `top`, `left`, and `elementID`.
+
+    ```js
+
+    > 💡 **Hint:** Think about which values change every time you place a dot. Your function will need:
+    > - One parameter for the **top** position
+    > - One parameter for the **left** position
+    > - One parameter for the **element to append to**
+    >
+    > Use these parameters when setting the CSS properties and when calling `.appendTo()`.
+
+---
+
+### ✅ **Check Your Work!**
+
+- Click the die multiple times to test different outcomes
+- The dot patterns should update as you click, but will not erase the previous dots yet
+- If it’s not working:
+  - Double-check your `makeDot` function definition
+  - Make sure that you are using the parameters correctly in the `makeDot` function
+
+<br><br><br><br>
+
+## 🧹 TODO 8: Clear the Die Before Each Roll
+
+🎯 **Goal:** Prevent new dots from piling up by clearing the die before each roll.
+
+Each time the die is clicked, it should start fresh. To do that, just clear the contents of the die element at the beginning of the `rollDie` function.
+
+1. At the very top of your `rollDie` function, add:
+
+    ```js
+    $("#die").empty();
+    ```
+
+    This removes all existing dots inside the die before drawing new ones.
+
+---
+
+### ✅ **Check Your Work!**
+
+- Click the die a few times
+- You should only ever see the number of dots for the current roll—no leftover dots from before
+- If dots seem to be multiplying:
+  - Make sure `.empty()` is at the top of your `rollDie` function
+  - Confirm the selector is correct: `#die`
+
+<br><br><br><br>
+
+## 🎯 TODO 9: Add the Final Dice Face (Six Dots)
+
+🎯 **Goal:** Complete the random roll logic by handling the final case: when the number is 6.
+
+You’ve got the dot patterns for numbers 1 through 5—now it’s time to finish it off by adding one more `else if` block for when `randomNum === 6`.
+
+> 💡 **Hint:** Think about how six dots are arranged on a real die. You’ll want to use three pairs of dots, evenly spaced vertically. You can also reference the image in the earlier instructions if needed.
+
+Make sure to use your `makeDot` function and append the new dots to `#die`.
+
+---
+
+### ✅ **Check Your Work!**
+
+- Click the die until you see **six** dots
+- Make sure they’re evenly spaced and visually consistent with the other faces
+- If something’s off:
+  - Double-check your coordinates
+  - Make sure you’re appending to the correct element
+  - Look for typos in your conditional structure
+
+<br><br><br><br>
+
+# 🌟 Bonus Challenge
+
+🎯 **Goal:** Add a second die that can roll independently from the first.
+
+Once you’ve got one die working, try adding a second! You’ll need to update your HTML and CSS to include another `div` for the second die, and you’ll need to call your `rollDie` function twice—once for each die.
+
+> 💡 **Hint:** Your `rollDie` and `makeDot` functions already take an element ID as a parameter. This makes them reusable! Try calling `rollDie("#die2")` when the second die is clicked, just like you did with the first.
+
+Get creative! You could even:
+- Display the total of both dice
+- Color each die differently
+- Style them to look more like real dice
