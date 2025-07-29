@@ -46,16 +46,16 @@ This mini-project uses three files:
 
 3.  Then, in `style.css`, define the basic styles for the die:
 
-        ```css
-        #die {
-          height: 100px;
-          width: 100px;
-          background-color: lightgray; /* Feel free to customize */
-          position: relative;
-        }
-        ```
+    ```css
+    #die {
+      height: 100px;
+      width: 100px;
+      background-color: lightgray; /* Feel free to customize */
+      position: relative;
+    }
+    ```
 
-    <br><br><br><br>
+<br><br><br><br>
 
 ## 🧲 TODO 2: Import jQuery
 
@@ -212,15 +212,13 @@ Now let’s make the die show the right face by calling a helper function called
 
 2. Define a new function above `rollDie` called `makeDot`. This function will handle creating and positioning a dot anywhere on the die. For this function, copy your code from TODO 3, but modify it to accept three parameters: `top`, `left`, and `elementID`.
 
-   ```js
+   💡 **Hint:** Think about which values change every time you place a dot. Your function will need:
 
-   > 💡 **Hint:** Think about which values change every time you place a dot. Your function will need:
    > - One parameter for the **top** position
    > - One parameter for the **left** position
    > - One parameter for the **element to append to**
    >
    > Use these parameters when setting the CSS properties and when calling `.appendTo()`.
-   ```
 
 ---
 
