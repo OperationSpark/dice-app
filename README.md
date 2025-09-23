@@ -134,10 +134,10 @@ $("<div>")
 Replace your direct function call with this:
 
 ```js
-$("#die").on("click", handleClick);
+$("#die").on("click", rollDie);
 ```
 
-This tells the browser: “When the element with the ID `die` is clicked, run the `handleClick` function.”
+This tells the browser: “When the element with the ID `die` is clicked, run the `rollDie` function.”
 
 ---
 
@@ -173,7 +173,7 @@ Now that your click handler is set up, it’s time to give it some functionality
 - Open the Console and click the die
 - You should see a random number between **1 and 6** each time you click
 - If it’s not working:
-  - Make sure you are now printing the random number inside your `handleClick` function instead of `"clicked"`
+  - Make sure you are now printing the random number inside your `rollDie` function instead of `"clicked"`
   - Double-check the `Math.random()` line for typos
 
 <br><br><br><br>
