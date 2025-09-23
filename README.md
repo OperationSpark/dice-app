@@ -159,12 +159,14 @@ This tells the browser: “When the element with the ID `die` is clicked, run th
 
 Now that your click handler is set up, it’s time to give it some functionality!
 
-1. Inside the function, generate a random number:
+1. Inside the `rollDie()` function, generate a random number:
 
    ```js
    var randomNum = Math.ceil(Math.random() * 6);
    console.log(randomNum);
    ```
+
+2. Remove the `console.log("clicked")` line.
 
 ---
 
