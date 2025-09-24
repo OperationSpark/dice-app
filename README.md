@@ -11,9 +11,10 @@ A simple interactive dice app built with HTML, CSS, and JavaScript (using jQuery
 - [🖱️ TODO 4: Make a Click Handler Function](#️-todo-4-make-a-click-handler-function)
 - [🔁 TODO 5: Register a Click Event with jQuery](#-todo-5-register-a-click-event-with-jquery)
 - [🎲 TODO 6: Generate a Random Number](#-todo-6-generate-a-random-number)
-- [🎯 TODO 7: Add Dots Based on the Random Number](#-todo-7-add-dots-based-on-the-random-number)
-- [🧹 TODO 8: Clear the Die Before Each Roll](#-todo-8-clear-the-die-before-each-roll)
-- [🎯 TODO 9: Add the Final Dice Face (Six Dots)](#-todo-9-add-the-final-dice-face-six-dots)
+- [⚪ TODO 7: Create a Dot Helper Function](#-todo-7-create-a-dot-helper-function)
+- [🎯 TODO 8: Add Dots Based on the Random Number](#-todo-8-add-dots-based-on-the-random-number)
+- [🧹 TODO 9: Clear the Die Before Each Roll](#-todo-9-clear-the-die-before-each-roll)
+- [🎯 TODO 10: Add the Final Dice Face (Six Dots)](#-todo-10-add-the-final-dice-face-six-dots)
 - [🌟 Bonus Challenge](#-bonus-challenge)
 
 ---
@@ -111,9 +112,11 @@ $("<div>")
 
 🎯 **Goal:** Create a function that logs a message when it runs, so you can test that it's connected correctly later.
 
-1. In `dice.js`, create a function called `rollDie`, that will only log the word **“clicked”** to the console.
+1. In `dice.js`, create a function called `rollDie(dieId)`, that will only log the word **“clicked”** to the console.
 
-2. Just below the function, call `rollDie()` directly to test it.
+2. Below `rollDie`, create a function called `handleClick`, that will call `rollDie("#die")`.
+
+3. Just below the function, call `handleClick()` directly to test it.
 
 ---
 
@@ -134,10 +137,10 @@ $("<div>")
 Replace your direct function call with this:
 
 ```js
-$("#die").on("click", rollDie);
+$("#die").on("click", handleClick);
 ```
 
-This tells the browser: “When the element with the ID `die` is clicked, run the `rollDie` function.”
+This tells the browser: “When the element with the ID `die` is clicked, run the `handleClick` function.”
 
 ---
 
@@ -180,39 +183,13 @@ Now that your click handler is set up, it’s time to give it some functionality
 
 <br><br><br><br>
 
-## 🔢 TODO 7: Add Dots Based on the Random Number
+## ⚪ TODO 7: Create a Dot Helper Function
 
-🎯 **Goal:** Use the random number to display the correct number of dots on the die.
+🎯 **Goal:** Enable the creation of dots on a die at a specific position.
 
 Now let’s make the die show the right face by calling a helper function called `makeDot`.
 
-1. **Copy and paste** the following code inside your `rollDie` function, after generating the random number:
-
-   ```js
-   if (randomNum === 1) {
-     makeDot(50, 50, "#die"); // middle middle
-   } else if (randomNum === 2) {
-     makeDot(25, 25, "#die"); // top left
-     makeDot(75, 75, "#die"); // bottom right
-   } else if (randomNum === 3) {
-     makeDot(25, 25, "#die"); // top left
-     makeDot(75, 75, "#die"); // bottom right
-     makeDot(50, 50, "#die"); // middle middle
-   } else if (randomNum === 4) {
-     makeDot(75, 75, "#die"); // bottom right
-     makeDot(25, 25, "#die"); // top left
-     makeDot(25, 75, "#die"); // bottom left
-     makeDot(75, 25, "#die"); // top right
-   } else if (randomNum === 5) {
-     makeDot(50, 50, "#die"); // middle middle
-     makeDot(75, 75, "#die"); // bottom right
-     makeDot(25, 25, "#die"); // top left
-     makeDot(25, 75, "#die"); // bottom left
-     makeDot(75, 25, "#die"); // top right
-   }
-   ```
-
-2. Define a new function above `rollDie` called `makeDot`. This function will handle creating and positioning a dot anywhere on the die. For this function, copy your code from TODO 3, but modify it to accept three parameters: `top`, `left`, and `elementID`.
+1. First, define a new function above `rollDie` called `makeDot`. This function will handle creating and positioning a dot anywhere on the die. For this function, copy your code from TODO 3, but modify it to accept three parameters: `top`, `left`, and `elementID`.
 
    💡 **Hint:** Think about which values change every time you place a dot. Your function will need:
 
@@ -226,6 +203,49 @@ Now let’s make the die show the right face by calling a helper function called
 
 ### ✅ **Check Your Work!**
 
+- Below the `makeDot` function, call it three times with the following parameters:
+
+  ```js
+  makeDot(50, 50, "#die"); // middle middle
+  makeDot(25, 25, "#die"); // top left
+  makeDot(75, 75, "#die"); // bottom right
+  ```
+
+- You should see three dots appear on the die in the correct positions.
+- Delete the function calls after testing.
+
+## 🔢 TODO 8: Add Dots Based on the Random Number
+
+1. **Copy and paste** the following code inside your `rollDie` function, after generating the random number:
+
+   ```js
+   if (randomNum === 1) {
+     makeDot(50, 50, dieID); // middle middle
+   } else if (randomNum === 2) {
+     makeDot(25, 25, dieID); // top left
+     makeDot(75, 75, dieID); // bottom right
+   } else if (randomNum === 3) {
+     makeDot(25, 25, dieID); // top left
+     makeDot(75, 75, dieID); // bottom right
+     makeDot(50, 50, dieID); // middle middle
+   } else if (randomNum === 4) {
+     makeDot(75, 75, dieID); // bottom right
+     makeDot(25, 25, dieID); // top left
+     makeDot(25, 75, dieID); // bottom left
+     makeDot(75, 25, dieID); // top right
+   } else if (randomNum === 5) {
+     makeDot(50, 50, dieID); // middle middle
+     makeDot(75, 75, dieID); // bottom right
+     makeDot(25, 25, dieID); // top left
+     makeDot(25, 75, dieID); // bottom left
+     makeDot(75, 25, dieID); // top right
+   }
+   ```
+
+---
+
+### ✅ **Check Your Work!**
+
 - Click the die multiple times to test different outcomes
 - The dot patterns should update as you click, but will not erase the previous dots yet
 - If it’s not working:
@@ -234,7 +254,7 @@ Now let’s make the die show the right face by calling a helper function called
 
 <br><br><br><br>
 
-## 🧹 TODO 8: Clear the Die Before Each Roll
+## 🧹 TODO 9: Clear the Die Before Each Roll
 
 🎯 **Goal:** Prevent new dots from piling up by clearing the die before each roll.
 
@@ -243,7 +263,7 @@ Each time the die is clicked, it should start fresh. To do that, just clear the 
 1. At the very top of your `rollDie` function, add:
 
    ```js
-   $("#die").empty();
+   $(dieID).empty();
    ```
 
    This removes all existing dots inside the die before drawing new ones.
@@ -260,7 +280,7 @@ Each time the die is clicked, it should start fresh. To do that, just clear the 
 
 <br><br><br><br>
 
-## 🎯 TODO 9: Add the Final Dice Face (Six Dots)
+## 🎯 TODO 10: Add the Final Dice Face (Six Dots)
 
 🎯 **Goal:** Complete the random roll logic by handling the final case: when the number is 6.
 
