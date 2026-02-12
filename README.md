@@ -112,7 +112,7 @@ $("<div>")
 
 🎯 **Goal:** Create a function that logs a message when it runs, so you can test that it's connected correctly later.
 
-1. In `dice.js`, create a function called `rollDie(dieId)`, that will only log the word **“clicked”** to the console.
+1. In `dice.js`, create a function called `rollDie(dieID)`, that will only log the word **“clicked”** to the console.
 
 2. Below `rollDie`, create a function called `handleClick`, that will call `rollDie("#die")`.
 
